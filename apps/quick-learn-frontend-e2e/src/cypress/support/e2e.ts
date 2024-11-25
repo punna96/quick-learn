@@ -15,3 +15,9 @@
 
 // Import commands.ts using ES2015 syntax:
 import './commands';
+module.exports = {
+    e2e: {
+      supportFile: "cypress/support/e2e.ts",
+    },
+  };
+  
