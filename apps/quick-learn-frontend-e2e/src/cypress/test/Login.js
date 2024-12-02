@@ -20,7 +20,7 @@ class LoginPage {
   }
 
   getErrorMessage() {
-    return cy.get('.Toastify');
+    return cy.get('.Toastify'); //tests
   }
 
   getWelcomeMessage() {
