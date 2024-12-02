@@ -15,6 +15,10 @@ class LoginPage {
     return cy.get('button[type="submit"]');
   }
 
+  getRememberMeCheckbox() {
+    return cy.get('[type="checkbox"]'); // Return the checkbox element
+  }
+
   getErrorMessage() {
     return cy.get('.Toastify');
   }
@@ -26,14 +30,17 @@ class LoginPage {
   login(mail, password) {
     this.getUsernameInput().type(mail);
     this.getPasswordInput().type(password);
+    this.getRememberMeCheckbox().check(); // Check the Remember Me checkbox
     this.getSubmitButton().click();
   }
 
   loginWithInvalidCredential(username, password) {
     this.getUsernameInput().type(username);
     this.getPasswordInput().type(password);
+    this.getRememberMeCheckbox().check(); // Optionally include this step here
     this.getSubmitButton().click();
   }
+
   loginWithEmptyValue() {
     this.getSubmitButton().should('be.disabled');
   }
