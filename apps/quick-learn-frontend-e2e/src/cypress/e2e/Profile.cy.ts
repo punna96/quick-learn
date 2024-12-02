@@ -14,7 +14,7 @@ describe('Primary Skill Update', () => {
     loginPage.getWelcomeMessage().should('contain', 'Successfully logged in.');
   });
   it('Verify User should able to Upload profile Pic ', () => {
-    const myProfiles = new profile();
+    const myProfiles = new profile(); //test
     myProfiles.OpenProfile();
     myProfiles.getMyProfile();
     myProfiles.uploadPic();
