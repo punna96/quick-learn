@@ -13,21 +13,17 @@ describe('Login Test', () => {
   });
 
   it('should display an error for invalid credentials', () => {
-    loginPage.loginWithInvalidCredential(
-      'super.admin@yopmail.com',
-      'Password@123',
-    );
-
+    loginPage.loginWithInvalidCredential('super.admin@yopmail.com', 'InvalidPassword');
     loginPage.getErrorMessage().should('contain', 'Wrong Credentials!');
   });
 
   it('should log in with valid credentials', () => {
     loginPage.login(validCredentials.mail, validCredentials.password);
-
     cy.url().should('include', '/dashboard');
-    loginPage.getWelcomeMessage().should('contain', 'Successfully logged in.'); // Adjust selector and text as needed
+    loginPage.getWelcomeMessage().should('contain', 'Successfully logged in.');
   });
-  it('Verify user not able to login with empty value in email and password', () => {
+
+  it('should not allow login with empty email and password fields', () => {
     loginPage.loginWithEmptyValue();
   });
 });
